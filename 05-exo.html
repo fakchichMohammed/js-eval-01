@@ -65,7 +65,7 @@
         },
       ];
 
-      let mergedCollection = articles.map((article) => {
+      let filtered_data = articles.map((article) => {
         article.actor = actors.filter(
           (actor) => actor.id === article.id_actor
         );
@@ -78,7 +78,7 @@
         });
         return article;
       });
-      console.log(mergedCollection);
+      console.log(filtered_data);
     </script>
   </body>
 </html>
