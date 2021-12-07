@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo_1</title>
+  </head>
+
+  <body>
+    <script>
+      function exo_1(string) {
+        for (let index = 0; index < string.length; index++) {
+          let character = string.charAt(index);
+          if (
+            string.indexOf(character) == index &&
+            string.indexOf(character, index + 1) == -1
+          ) {
+            return character;
+          }
+        }
+        return null;
+      }
+      //example 01 should return b :
+      console.log(exo_1("bonjour"));
+
+      //example 02  should return o :
+      console.log(exo_1("hello henry"));
+
+      //example 03 should return null :
+      console.log(exo_1("coucou"));
+    </script>
+  </body>
+</html>

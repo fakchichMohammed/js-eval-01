@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo_2</title>
+  </head>
+
+  <body>
+    <script>
+      function exo_2(string, character) {
+        let number_of_character =
+          string.split(new RegExp(character, "gi")).length - 1;
+        return number_of_character;
+      }
+
+      //example 01 should return 2 :
+      console.log(exo_2("bonjour", "o"));
+
+      //example 01 should return 2 :
+      console.log(exo_2("bonjour", "O"));
+
+      //example 02  should return 1 :
+      console.log(exo_2("hello les amis", "o"));
+
+      //example 03 should return 0 :
+      console.log(exo_2("hello les amis", "z"));
+    </script>
+  </body>
+</html>
