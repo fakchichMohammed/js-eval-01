@@ -10,22 +10,22 @@
   <body>
     <script>
       const articles = [
-        { id: 1, titre: "article 1", like: 10, id_auteur: 1 },
-        { id: 2, titre: "article 2", like: 0, id_auteur: 3 },
-        { id: 3, titre: "article 3", like: 15, id_auteur: 1 },
-        { id: 4, titre: "article 4", like: 1, id_auteur: 2 },
+        { id: 1, title: "article 1", like: 10, id_actor: 1 },
+        { id: 2, title: "article 2", like: 0, id_actor: 3 },
+        { id: 3, title: "article 3", like: 15, id_actor: 1 },
+        { id: 4, title: "article 4", like: 1, id_actor: 2 },
       ];
-      const auteurs = [
-        { id: 1, nom: "Alain", isActif: true },
-        { id: 2, nom: "Béatrice", isActif: false },
-        { id: 3, nom: "Charles", isActif: true },
+      const actors = [
+        { id: 1, name: "Alain", isActif: true },
+        { id: 2, name: "Béatrice", isActif: false },
+        { id: 3, name: "Charles", isActif: true },
       ];
-      const commentaires = [
-        { id: 1, contenu: "lorem 1", id_article: 4 },
-        { id: 2, contenu: "lorem 2", id_article: 1 },
-        { id: 3, contenu: "lorem 3", id_article: 2 },
-        { id: 4, contenu: "lorem 4", id_article: 2 },
-        { id: 5, contenu: "lorem 5", id_article: 1 },
+      const comments = [
+        { id: 1, content: "lorem 1", id_article: 4 },
+        { id: 2, content: "lorem 2", id_article: 1 },
+        { id: 3, content: "lorem 3", id_article: 2 },
+        { id: 4, content: "lorem 4", id_article: 2 },
+        { id: 5, content: "lorem 5", id_article: 1 },
       ];
 
       const data = [
@@ -66,11 +66,11 @@
       ];
 
       let mergedCollection = articles.map((article) => {
-        article.auteur = auteurs.filter(
-          (auteur) => auteur.id === article.id_auteur
+        article.actor = actors.filter(
+          (actor) => actor.id === article.id_actor
         );
-        delete article.id_auteur;
-        article.commentaires = commentaires.filter((comment) => {
+        delete article.id_actor;
+        article.comments = comments.filter((comment) => {
           if (comment.id_article === article.id) {
             delete comment.id_article;
             return comment;
