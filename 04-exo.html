@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo_4</title>
+  </head>
+
+  <body>
+    <script>
+      function random_value(values) {
+        if (!values[Math.floor(Math.random() * values.length)])
+          return console.error("Invalid number of items"); //return console error if items is invalid
+        return console.log(values[Math.floor(Math.random() * values.length)]); //else if items is valid
+      }
+
+      //example 01 should return soit 'a' soit 'b' soit 'c' soit 'd' :
+      random_value(["a", "b", "c", "d"]);
+
+      //example 02  should return error :
+      random_value([]);
+
+      //example 03 should return error :
+      random_value("");
+    </script>
+  </body>
+</html>

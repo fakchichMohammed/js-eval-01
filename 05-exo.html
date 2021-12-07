@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo_5</title>
+  </head>
+
+  <body>
+    <script>
+      const articles = [
+        { id: 1, title: "article 1", like: 10, id_actor: 1 },
+        { id: 2, title: "article 2", like: 0, id_actor: 3 },
+        { id: 3, title: "article 3", like: 15, id_actor: 1 },
+        { id: 4, title: "article 4", like: 1, id_actor: 2 },
+      ];
+      const actors = [
+        { id: 1, name: "Alain", isActif: true },
+        { id: 2, name: "Béatrice", isActif: false },
+        { id: 3, name: "Charles", isActif: true },
+      ];
+      const comments = [
+        { id: 1, content: "lorem 1", id_article: 4 },
+        { id: 2, content: "lorem 2", id_article: 1 },
+        { id: 3, content: "lorem 3", id_article: 2 },
+        { id: 4, content: "lorem 4", id_article: 2 },
+        { id: 5, content: "lorem 5", id_article: 1 },
+      ];
+
+      const data = [
+        {
+          id: 1,
+          title: "article 1",
+          like: 10,
+          actor: { id: 1, name: "Alain", isActif: true },
+          comments: [
+            { id: 2, content: "lorem 2" },
+            { id: 5, content: "lorem 5" },
+          ],
+        },
+        {
+          id: 2,
+          title: "article 2",
+          like: 0,
+          actor: { id: 3, name: "Charles", isActif: true },
+          comments: [
+            { id: 3, content: "lorem 3" },
+            { id: 4, content: "lorem 4" },
+          ],
+        },
+        {
+          id: 3,
+          title: "article 3",
+          like: 15,
+          actor: { id: 1, name: "Alain", isActif: true },
+          comments: [],
+        },
+        {
+          id: 4,
+          title: "article 4",
+          like: 1,
+          actor: { id: 2, name: "Béatrice", isActif: false },
+          comments: [{ id: 1, content: "lorem 1", id_article: 4 }],
+        },
+      ];
+
+      let filtered_data = articles.map((article) => {
+        article.actor = actors.filter(
+          (actor) => actor.id === article.id_actor
+        );
+        delete article.id_actor;
+        article.comments = comments.filter((comment) => {
+          if (comment.id_article === article.id) {
+            delete comment.id_article;
+            return comment;
+          }
+        });
+        return article;
+      });
+      console.log(filtered_data);
+    </script>
+  </body>
+</html>
